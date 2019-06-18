@@ -1,7 +1,10 @@
-﻿using System;
+﻿using A_Team.Pages;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.Mail;
+using System.Resources;
 using System.Threading.Tasks;
 
 namespace A_Team.Interfaces
@@ -14,8 +17,17 @@ namespace A_Team.Interfaces
     {
         public bool SendMails(List<IEmail> mails)
         {
+            var rm = new ResourceManager(typeof(Templates));
+            ResourceSet rs = rm.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+            DateTime currentdate = new DateTime();
+            currentdate = DateTime.Now;
             foreach (var emailTemplate in mails)
             {
+                emailTemplate.EmailBody = string.Format(rs.GetString("EmailBody"), string.Format("{0}. of {1}, {2}.", currentdate.Day, currentdate.ToString("MMMM"), currentdate.Year));
+                emailTemplate.EmailFrom = rs.GetString("EmailFrom");
+                emailTemplate.CC = rs.GetString("CC");
+                emailTemplate.SMTPServer = rs.GetString("SMTPServer");
+                
                 var oMail = new MailMessage();
                 string EmailBody = "";
 

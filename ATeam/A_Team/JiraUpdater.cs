@@ -18,28 +18,31 @@ namespace A_Team
 
         public bool SendUpdatedItems()
         {
-            UpdateJiraItems();
-            //sentitems
+            var updatedJiraItems = GetUpdatedJiraItems();
+            UpdatedItemsExcelExporter.Export(updatedJiraItems);
             return true;
         }
 
-        private void UpdateJiraItems()
+        private List<JiraItem> GetUpdatedJiraItems()
         {
+            var newList = new List<JiraItem>();
             foreach (var jiraItem in items.ToList())
             {
                 switch (jiraItem.status)
                 {
-                    case JiraStatusEnum.ToDo:
-                        jiraItem.status = JiraStatusEnum.FirstReminderSent;
+                    case JiraStatusEnum.To_do:
+                        newList.Add(new JiraItem(jiraItem.Country, JiraStatusEnum.First_reminder_sent));
                         break;
-                    case JiraStatusEnum.FirstReminderSent:
-                        jiraItem.status = JiraStatusEnum.SecondReminderSent;
+                    case JiraStatusEnum.First_reminder_sent:
+                        newList.Add(new JiraItem(jiraItem.Country, JiraStatusEnum.Second_reminder_sent));
                         break;
-                    case JiraStatusEnum.SecondReminderSent:
-                        jiraItem.status = JiraStatusEnum.SignOff;
+                    case JiraStatusEnum.Second_reminder_sent:
+                        newList.Add(new JiraItem(jiraItem.Country, JiraStatusEnum.Sign_off));
                         break;
                 }
             }
+
+            return newList;
         }
     }
 }

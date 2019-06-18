@@ -7,7 +7,7 @@ using A_Team.Interfaces;
 
 namespace A_Team
 {
-    public class JiraUpdater: IJiraInteractor
+    public class JiraUpdater: IJiraUpdater
     {
         public List<JiraItem> items { get; set; }
 

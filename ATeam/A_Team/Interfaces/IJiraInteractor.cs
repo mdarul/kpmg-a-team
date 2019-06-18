@@ -8,6 +8,5 @@ namespace A_Team.Interfaces
     public interface IJiraInteractor
     {
         List<JiraItem> GetItems();
-        bool UpdateItems(List<JiraItem> items);
     }
 }

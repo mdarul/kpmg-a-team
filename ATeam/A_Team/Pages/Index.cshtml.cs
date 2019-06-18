@@ -11,7 +11,7 @@ namespace A_Team.Pages
     {
         public void OnGet()
         {
-
+            new JiraInteractor().GetItems();
         }
     }
 }

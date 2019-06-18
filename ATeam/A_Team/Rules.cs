@@ -19,7 +19,7 @@ namespace A_Team
         public static void RunRules()
         {
             var contacts = _cr.ReadContacts("../Gdansk Hackathon - Jira Country contacts.csv");
-            var jiraItemsToSend = _jiraInteractor.GetItems().Where(i => i.status == JiraStatusEnum.ToDo);
+            var jiraItemsToSend = _jiraInteractor.GetItems().Where(i => i.status == JiraStatusEnum.To_do);
             var date = DateTime.Now;
             string quarter;
             if (date.Month <= 3)

@@ -7,10 +7,10 @@ namespace A_Team.Data
 {
     public enum JiraStatusEnum
     {
-        FirstReminderSent,
-        SecondReminderSent,
-        SignOff,
-        ToDo,
+        First_reminder_sent,
+        Second_reminder_sent,
+        Sign_off,
+        To_do,
         Done
     }
 }

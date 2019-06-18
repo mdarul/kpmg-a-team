@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Hangfire;
@@ -52,11 +53,16 @@ namespace A_Team
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            GlobalConfiguration.Configuration
-            .UseSqlServerStorage(@"<add name=""ATeam"" connectionString =""server = DEFR4QILEDB011\APP; database = A1Test; Trusted_Connection = True; multipleactiveresultsets = True"" providerName =""System.Data.SqlClient"" />");
-
-            app.UseHangfireDashboard();
-            app.UseHangfireServer();
+            //GlobalConfiguration.Configuration
+            //.UseSqlServerStorage(@"Data Source =.; database = ATeam;  Integrated Security=True; ");
+            //app.UseHangfireDashboard("/hangfire", new DashboardOptions()
+            //{
+            //    Authorization = new[] { new HangFireAuthorizationFilter() }
+            //});
+           
+            //RecurringJob.AddOrUpdate(() => Debug.WriteLine("ff") , Cron.Hourly);
+            //app.UseHangfireDashboard();
+            //app.UseHangfireServer();
             app.UseMvc();
         }
     }

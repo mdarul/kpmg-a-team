@@ -7,7 +7,7 @@ namespace A_Team.Interfaces
 {
     public interface IJiraInteractor
     {
-        List<IJiraItem> GetItems();
-        bool UpdateItems(List<IJiraItem> items);
+        List<JiraItem> GetItems();
+        bool UpdateItems(List<JiraItem> items);
     }
 }

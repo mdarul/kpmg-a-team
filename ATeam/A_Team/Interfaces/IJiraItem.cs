@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace A_Team.Interfaces
 {
-    interface IJiraItem
+    public interface IJiraItem
     {
     }
 }

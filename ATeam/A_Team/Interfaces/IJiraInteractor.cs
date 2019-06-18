@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace A_Team.Interfaces
 {
-    interface IJiraInteractor
+    public interface IJiraInteractor
     {
         List<IJiraItem> GetItems();
         bool UpdateItems(List<IJiraItem> items);

@@ -70,10 +70,10 @@ namespace A_Team.Pages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hello, &lt;/br&gt; &lt;/br&gt;
+        ///   Looks up a localized string similar to Hello, &lt;/br&gt;&lt;/br&gt;
         ///We are yet to receive your completed Business Traveller questionnaires for this quarter. The deadline for this was {0}, which has now passed. 
         ///&lt;/br&gt;
-        ///Our Business Traveller tool is frequently used to differentiate us from our competitors in the market but it needs to be technically sound to maintain this market leading position.  Please ensure your office completes the Business Traveller questionnaire this quarter.  Your input is critical to helping our clients manage their global short [rest of string was truncated]&quot;;.
+        ///Our Business Traveller tool is frequently used to differentiate us from our competitors in the market but it needs to be technically sound to maintain this market leading position.  Please ensure your office completes the Business Traveller questionnaire this quarter.  Your input is critical to helping our clients manage their global short  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string EmailBody {
             get {
@@ -91,7 +91,7 @@ namespace A_Team.Pages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to smtp.de.kworld.kpmg.com.
+        ///   Looks up a localized string similar to smtp.pl.kworld.kpmg.com.
         /// </summary>
         public static string SMTPServer {
             get {

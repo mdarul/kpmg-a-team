@@ -121,7 +121,7 @@
     <value>Ali Khan, Alizay &lt;Alizay.AliKhan@kpmg.co.uk&gt;; Rathakrishnan, Vinoth &lt;Vinoth.Rathakrishnan@KPMG.co.uk&gt;; Caesar, Tafana &lt;Tafana.Caesar@kpmg.co.uk&gt; ; DE-TaxGMSITESTAnlage@kpmg.com</value>
   </data>
   <data name="EmailBody" xml:space="preserve">
-    <value>Hello, &lt;/br&gt; &lt;/br&gt;
+    <value>Hello, &lt;/br&gt;&lt;/br&gt;
 We are yet to receive your completed Business Traveller questionnaires for this quarter. The deadline for this was {0}, which has now passed. 
 &lt;/br&gt;
 Our Business Traveller tool is frequently used to differentiate us from our competitors in the market but it needs to be technically sound to maintain this market leading position.  Please ensure your office completes the Business Traveller questionnaire this quarter.  Your input is critical to helping our clients manage their global short term business visitor risks and us becoming the clear choice for global mobility services.
@@ -130,12 +130,12 @@ Please endeavour to provide us with the necessary information by {1}.
 &lt;/br&gt;&lt;/br&gt;
 Thanking you in advance, your assistance is appreciated. 
 &lt;/br&gt;
-Alizay</value>
+GMS KPMG Team</value>
   </data>
   <data name="EmailFrom" xml:space="preserve">
     <value>do.not.reply-gms@kpmg.com</value>
   </data>
   <data name="SMTPServer" xml:space="preserve">
-    <value>smtp.de.kworld.kpmg.com</value>
+    <value>smtp.pl.kworld.kpmg.com</value>
   </data>
 </root>

@@ -6,7 +6,7 @@ namespace A_Team.Pages
     {
         public void OnGet()
         {
-            Rules.RunRules();
+            new JiraInteractor().GetItems();
         }
     }
 }

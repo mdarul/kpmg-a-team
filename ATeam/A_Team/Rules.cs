@@ -2,23 +2,10 @@
 using A_Team.Data;
 using A_Team.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace A_Team
 {
-    internal class JiraInteractor : IJiraInteractor
-    {
-        public List<JiraItem> GetItems()
-        {
-            return new List<JiraItem>();
-        }
-
-        public bool UpdateItems(List<JiraItem> items)
-        {
-            return true;
-        }
-    }
     public class Rules
     {
         private static readonly ContactsReader _cr = new ContactsReader();
@@ -41,7 +28,7 @@ namespace A_Team
 
             foreach (var jiraItem in jiraItemsToSend)
             {
-                // todo
+                var contact = contacts.FirstOrDefault(c => c.Country == jiraItem.Country);
             }
 
         }

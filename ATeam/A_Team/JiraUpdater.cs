@@ -11,10 +11,15 @@ namespace A_Team
     {
         public List<JiraItem> items { get; set; }
 
+        public JiraUpdater(List<JiraItem> items)
+        {
+            this.items = items;
+        }
+
         public bool SendUpdatedItems()
         {
             UpdateJiraItems();
-
+            //sentitems
             return true;
         }
 

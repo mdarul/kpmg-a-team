@@ -10,12 +10,12 @@ namespace A_Team
     public class Rules
     {
         private static readonly ContactsReader _cr = new ContactsReader();
-        private static readonly IJiraInteractor _jiraInteractor;
+        private static readonly IJiraInteractor _jiraInteractor = new JiraInteractor();
         private static readonly IEmailInteractor _email = new Email();
 
         public static void RunRules()
         {
-            var contacts = _cr.ReadContacts("C:/Users/mkielczewski/Desktop/Gdansk Hackathon - Jira Country contacts.csv");
+            var contacts = _cr.ReadContacts("../Gdansk Hackathon - Jira Country contacts.csv");
             var jiraItemsToSend = _jiraInteractor.GetItems().Where(i => i.status == JiraStatusEnum.ToDo);
             var date = DateTime.Now;
             string quarter;
@@ -43,7 +43,10 @@ namespace A_Team
                 emails.Add(email);
             }
 
+
             _email.SendMails(emails);
+            var updater = new JiraUpdater(jiraItemsToSend.ToList());
+            updater.SendUpdatedItems();
 
         }
     }

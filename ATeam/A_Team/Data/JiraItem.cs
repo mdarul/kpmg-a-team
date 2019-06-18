@@ -6,7 +6,7 @@ using A_Team.Data;
 
 namespace A_Team.Interfaces
 {
-    public interface IJiraItem
+    public class JiraItem
     {
         public JiraStatusEnum status;
     }

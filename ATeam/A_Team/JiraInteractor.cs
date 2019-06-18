@@ -8,12 +8,12 @@ namespace A_Team
 {
     public class JiraInteractor : IJiraInteractor
     {
-        public List<IJiraItem> GetItems()
+        public List<JiraItem> GetItems()
         {
             throw new NotImplementedException();
         }
 
-        public bool UpdateItems(List<IJiraItem> items)
+        public bool UpdateItems(List<JiraItem> items)
         {
             throw new NotImplementedException();
         }

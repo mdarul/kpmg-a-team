@@ -41,10 +41,10 @@ namespace A_Team
                     switch (match.Groups["status"].Value.Trim())
                     {
                         case "To Do":
-                            item.status = Data.JiraStatusEnum.ToDo;
+                            item.status = Data.JiraStatusEnum.To_do;
                             break;
                         case "Sign-off":
-                            item.status = Data.JiraStatusEnum.SignOff;
+                            item.status = Data.JiraStatusEnum.Sign_off;
                             break;
                     }
 

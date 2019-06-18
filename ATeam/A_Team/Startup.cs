@@ -64,28 +64,30 @@ namespace A_Team
             //RecurringJob.AddOrUpdate(() => Debug.WriteLine("ff") , Cron.Hourly);
             //app.UseHangfireDashboard();
             //app.UseHangfireServer();
-            var rm = new System.Resources.ResourceManager(typeof(Pages.Templates));
-            System.Resources.ResourceSet rs = rm.GetResourceSet(System.Globalization.CultureInfo.CurrentUICulture, true, true);
-            DateTime currentdate = new DateTime();
-            currentdate = DateTime.Now;
-            DateTime deadline = new DateTime();
-            deadline = currentdate.AddDays(7);
-            Interfaces.IEmailInteractor emailInteractor = new Email();
-            List<IEmail> emails = new List<IEmail>();
-            var email = new Data.EmailModel
-            {
-                Country = "Germany",
-                //EmailTo = contact.Email,
-                EmailSubject = "testt",
-                EmailBody = string.Format(rs.GetString("EmailBody"), string.Format("{0}. of {1}, {2}.", currentdate.Day, currentdate.ToString("MMMM"), currentdate.Year)
-                   , string.Format("{0}. of {1}, {2}.", deadline.Day, deadline.ToString("MMMM"), deadline.Year)),
-                EmailFrom = rs.GetString("EmailFrom"),
-                EmailTo = "sjabyelharamein@kpmg.com",
-                //emailTemplate.CC = rs.GetString("CC"),
-                SMTPServer = rs.GetString("SMTPServer")
-            };
-            emails.Add(email);
-            emailInteractor.SendMails(emails);
+            //var rm = new System.Resources.ResourceManager(typeof(Pages.Templates));
+            //System.Resources.ResourceSet rs = rm.GetResourceSet(System.Globalization.CultureInfo.CurrentUICulture, true, true);
+            //DateTime currentdate = new DateTime();
+            //currentdate = DateTime.Now;
+            //DateTime deadline = new DateTime();
+            //deadline = currentdate.AddDays(7);
+            //Interfaces.IEmailInteractor emailInteractor = new Email();
+            //List<IEmail> emails = new List<IEmail>();
+            //var email = new Data.EmailModel
+            //{
+            //    Country = "Germany",
+            //    //EmailTo = contact.Email,
+            //    EmailSubject = "testt",
+            //    EmailBody = string.Format(rs.GetString("EmailBody"), string.Format("{0}. of {1}, {2}.", currentdate.Day, currentdate.ToString("MMMM"), currentdate.Year)
+            //       , string.Format("{0}. of {1}, {2}.", deadline.Day, deadline.ToString("MMMM"), deadline.Year)),
+            //    EmailFrom = rs.GetString("EmailFrom"),
+            //    EmailTo = "sjabyelharamein@kpmg.com",
+            //    //emailTemplate.CC = rs.GetString("CC"),
+            //    SMTPServer = rs.GetString("SMTPServer")
+            //};
+            //emails.Add(email);
+            //emailInteractor.SendMails(emails);
+       
+            Rules.RunRules();
 
             app.UseMvc();
         }

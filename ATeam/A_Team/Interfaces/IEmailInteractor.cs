@@ -1,4 +1,5 @@
 ﻿using A_Team.Pages;
+using Microsoft.Office.Interop.Outlook;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -43,19 +44,39 @@ namespace A_Team.Interfaces
                     oMail.From = fromAddress;
                 }
                 EmailBody += emailTemplate.EmailBody;
-
+                //Microsoft.Office.Interop.Outlook.Application oApp;
                 using (var oClient = new SmtpClient())
                 {
-                    oClient.Port = 25;
-                    oClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    oClient.UseDefaultCredentials = true;
-                    oClient.Host = emailTemplate.SMTPServer;
-                    oMail.IsBodyHtml = true;
-                    oMail.Subject = emailTemplate.EmailSubject;
-                    oMail.Body = EmailBody;
-                    oClient.Send(oMail);
-                    oMail.Dispose();
-                }
+
+                    Microsoft.Office.Interop.Outlook.Application oApp1 = new Microsoft.Office.Interop.Outlook.Application();
+                    Microsoft.Office.Interop.Outlook.MailItem oMsg1 = (Microsoft.Office.Interop.Outlook.MailItem)oApp1.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+
+                    oMsg1.Body = emailTemplate.EmailBody;
+                    int iPosition = (int)oMsg1.Body.Length + 1;
+                    oMsg1.Subject = emailTemplate.EmailSubject;
+                  
+                    // Add a recipient.
+                    Microsoft.Office.Interop.Outlook.Recipients oRecips = (Microsoft.Office.Interop.Outlook.Recipients)oMsg1.Recipients;
+                    Microsoft.Office.Interop.Outlook.Recipient oRecip = (Microsoft.Office.Interop.Outlook.Recipient)oRecips.Add(emailTemplate.EmailTo);
+                    oRecip.Type = (int)OlMailRecipientType.olTo;
+                    if (string.IsNullOrEmpty(emailTemplate.CC) == false)
+                    {
+                        Microsoft.Office.Interop.Outlook.Recipient oRecipcc = (Microsoft.Office.Interop.Outlook.Recipient)oRecips.Add(emailTemplate.CC);
+                        oRecipcc.Type = (int)OlMailRecipientType.olCC;
+                    }
+                    oRecip.Resolve();
+              
+                    oMsg1.Send();
+                        //oClient.Port = 25;
+                        //oClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        //oClient.UseDefaultCredentials = true;
+                        //oClient.Host = emailTemplate.SMTPServer;
+                        //oMail.IsBodyHtml = true;
+                        //oMail.Subject = emailTemplate.EmailSubject;
+                        //oMail.Body = EmailBody;
+                        //oClient.Send(oMail);
+                        //oMail.Dispose();
+                    }
             }
             if (countProc== mails.Count)
             {

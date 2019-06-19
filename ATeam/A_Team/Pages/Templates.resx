@@ -118,13 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CC" xml:space="preserve">
-    <value>Ali Khan, Alizay &lt;Alizay.AliKhan@kpmg.co.uk&gt;; Rathakrishnan, Vinoth &lt;Vinoth.Rathakrishnan@KPMG.co.uk&gt;; Caesar, Tafana &lt;Tafana.Caesar@kpmg.co.uk&gt; ; DE-TaxGMSITESTAnlage@kpmg.com</value>
+    <value>DE-TaxGMSITESTAnlage@kpmg.com</value>
   </data>
   <data name="EmailBody" xml:space="preserve">
     <value>Hello, 
+
 We are yet to receive your completed Business Traveller questionnaires for this quarter. The deadline for this was {0}, which has now passed. 
 
-Our Business Traveller tool is frequently used to differentiate us from our competitors in the market but it needs to be technically sound to maintain this market leading position.  Please ensure your office completes the Business Traveller questionnaire this quarter.  Your input is critical to helping our clients manage their global short term business visitor risks and us becoming the clear choice for global mobility services.
+Our Business Traveller tool is frequently used to differentiate us from our competitors in the market but it needs to be technically sound to maintain this market leading position.  
+Please ensure your office completes the Business Traveller questionnaire this quarter.  Your input is critical to helping our clients manage their global short term business visitor risks and us becoming the clear choice for global mobility services.
 
 Please endeavour to provide us with the necessary information by {1}.
 
@@ -136,6 +138,6 @@ GMS KPMG Team</value>
     <value>do.not.reply-gms@kpmg.com</value>
   </data>
   <data name="SMTPServer" xml:space="preserve">
-    <value>smtp.pl.kworld.kpmg.com</value>
+    <value>smtp.DE.kworld.kpmg.com</value>
   </data>
 </root>

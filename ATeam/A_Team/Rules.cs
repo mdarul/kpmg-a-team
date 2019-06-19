@@ -18,6 +18,11 @@ namespace A_Team
 
         public static void RunRules()
         {
+            System.Globalization.CultureInfo customCulture = new System.Globalization.CultureInfo("en-US", true);
+
+            System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = customCulture;
+
             var contacts = _cr.ReadContacts("../Gdansk Hackathon - Jira Country contacts.csv");
             var jiraItemsToSend = _jiraInteractor.GetItems().Where(i => i.status == JiraStatusEnum.To_do);
             var date = DateTime.Now;
@@ -30,7 +35,7 @@ namespace A_Team
                 quarter = $"Third Quarter {date.Year}";
             else
                 quarter = $"Fourth Quarter {date.Year}";
-            var subject = $"KPMG LINK Business Traveler - {quarter}";
+            var subject = $"KPMG LINK Business Traveler - {quarter} - " ;
             List<IEmail> emails = new List<IEmail>();
             var rm = new ResourceManager(typeof(Templates));
             ResourceSet rs = rm.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
@@ -47,20 +52,21 @@ namespace A_Team
                 {
                     Country = jiraItem.Country,
                     EmailTo = contact.Email,
-                    EmailSubject = subject,
+                    //EmailTo = "",
+                    EmailSubject = subject+ contact.Country,
                     EmailBody = string.Format(rs.GetString("EmailBody"), string.Format("{0}. of {1}, {2}.", currentdate.Day, currentdate.ToString("MMMM"), currentdate.Year)
                     , string.Format("{0}. of {1}, {2}.", deadline.Day, deadline.ToString("MMMM"), deadline.Year)),
                     EmailFrom = rs.GetString("EmailFrom"),
-                //emailTemplate.CC = rs.GetString("CC"),
+                    ReplyTo = rs.GetString("CC"),
+                    CC = rs.GetString("CC"),
                     SMTPServer = rs.GetString("SMTPServer")
             };
                 emails.Add(email);
             }
 
-
             _email.SendMails(emails);
             var updater = new JiraUpdater(jiraItemsToSend.ToList());
-            updater.SendUpdatedItems();
+            //updater.SendUpdatedItems();
 
         }
     }

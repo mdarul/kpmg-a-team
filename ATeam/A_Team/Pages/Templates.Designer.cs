@@ -61,7 +61,7 @@ namespace A_Team.Pages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ali Khan, Alizay &lt;Alizay.AliKhan@kpmg.co.uk&gt;; Rathakrishnan, Vinoth &lt;Vinoth.Rathakrishnan@KPMG.co.uk&gt;; Caesar, Tafana &lt;Tafana.Caesar@kpmg.co.uk&gt; ; DE-TaxGMSITESTAnlage@kpmg.com.
+        ///   Looks up a localized string similar to DE-TaxGMSITESTAnlage@kpmg.com.
         /// </summary>
         public static string CC {
             get {
@@ -71,9 +71,11 @@ namespace A_Team.Pages {
         
         /// <summary>
         ///   Looks up a localized string similar to Hello, 
+        ///
         ///We are yet to receive your completed Business Traveller questionnaires for this quarter. The deadline for this was {0}, which has now passed. 
         ///
-        ///Our Business Traveller tool is frequently used to differentiate us from our competitors in the market but it needs to be technically sound to maintain this market leading position.  Please ensure your office completes the Business Traveller questionnaire this quarter.  Your input is critical to helping our clients manage their global short term business v [rest of string was truncated]&quot;;.
+        ///Our Business Traveller tool is frequently used to differentiate us from our competitors in the market but it needs to be technically sound to maintain this market leading position.  
+        ///Please ensure your office completes the Business Traveller questionnaire this quarter.  Your input is critical to helping our clients manage their global short term busine [rest of string was truncated]&quot;;.
         /// </summary>
         public static string EmailBody {
             get {
@@ -91,7 +93,7 @@ namespace A_Team.Pages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to smtp.pl.kworld.kpmg.com.
+        ///   Looks up a localized string similar to smtp.DE.kworld.kpmg.com.
         /// </summary>
         public static string SMTPServer {
             get {
